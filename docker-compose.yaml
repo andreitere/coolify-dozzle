@@ -7,6 +7,8 @@ services:
       - dozzle-data:/data
     environment:
       - DOZZLE_AUTH_PROVIDER=simple
+      - DOZZLE_PASSES=${DOZZLE_PASSES:dozzledozzle}
+      - DOZZLE_USERS=${DOZZLE_PASSES:dozzle}
       - SERVICE_FQDN_DOZZLE_8080
     depends_on:
       - users-generator
