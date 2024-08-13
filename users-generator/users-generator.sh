@@ -8,7 +8,7 @@ echo "users:" > $USERS_YAML
 
 # Split the DOZZLE_USERS and DOZZLE_PASSWORDS into arrays
 IFS="," read -ra USERS <<< "$DOZZLE_USERS"
-IFS="," read -ra PASSWORDS <<< "$DOZZLE_PASSWORDS"
+IFS="," read -ra PASSWORDS <<< "$DOZZLE_PASSES"
 
 # Check if the number of users matches the number of passwords
 if [ ${#USERS[@]} -ne ${#PASSWORDS[@]} ]; then
