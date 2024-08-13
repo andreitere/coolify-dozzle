@@ -18,6 +18,7 @@ services:
     environment:
       - DOZZLE_PASSES=${DOZZLE_PASSES:-'dozzledozzle'}
       - DOZZLE_USERS=${DOZZLE_USERS:-'dozzle'}
+      - DOZZLE_EMAILS=${DOZZLE_EMAILS:-'me@logs.local'}
     volumes:
       - dozzle-data:/data
 
