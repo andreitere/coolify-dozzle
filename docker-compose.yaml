@@ -12,14 +12,11 @@ services:
       - users-generator
 
   users-generator:
-    image: bash:latest
+    build:
+      context: ./users-generator
+      dockerfile: Dockerfile
     volumes:
       - dozzle-data:/data
-      - ./users-generator.sh:/users-generator.sh
-    environment:
-      DOZZLE_USERS: ${DOZZLE_USERS:-admin}
-      DOZZLE_PASSWORDS: ${DOZZLE_PASSES:-dozzledozzle}
-    entrypoint: ["/bin/bash", "/users-generator.sh"]
 
 volumes:
     dozzle-data:
