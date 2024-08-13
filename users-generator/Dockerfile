@@ -6,4 +6,4 @@ COPY ./users-generator.sh .
 
 RUN chmod +x ./users-generator.sh
 
-CMD ["./users-generator.sh"]
+CMD ["./data/users-generator.sh"]
