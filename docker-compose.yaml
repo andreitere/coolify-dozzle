@@ -19,7 +19,7 @@ services:
     environment:
       DOZZLE_USERS: ${DOZZLE_USERS:-admin}
       DOZZLE_PASSWORDS: ${DOZZLE_PASSES:-dozzledozzle}
-    entrypoint: ["/users-generator.sh"]
+    entrypoint: ["/bin/bash", "/users-generator.sh"]
 
 volumes:
     dozzle-data:
