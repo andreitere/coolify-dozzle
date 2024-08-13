@@ -10,6 +10,9 @@ echo "users:" > $USERS_YAML
 IFS="," read -ra USERS <<< "$DOZZLE_USERS"
 IFS="," read -ra PASSWORDS <<< "$DOZZLE_PASSES"
 
+echo $DOZZLE_PASSES
+echo $DOZZLE_USERS
+
 # Check if the number of users matches the number of passwords
 if [ ${#USERS[@]} -ne ${#PASSWORDS[@]} ]; then
   echo "Error: The number of users and passwords must match."
