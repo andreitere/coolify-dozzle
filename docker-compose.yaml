@@ -16,8 +16,8 @@ services:
       context: ./users-generator
       dockerfile: Dockerfile
     environment:
-      - DOZZLE_PASSES=${DOZZLE_PASSES-:dozzledozzle}
-      - DOZZLE_USERS=${DOZZLE_PASSES-:dozzle}
+      - DOZZLE_PASSES=${DOZZLE_PASSES:-'dozzledozzle'}
+      - DOZZLE_USERS=${DOZZLE_PASSES:-'dozzle'}
     volumes:
       - dozzle-data:/data
 
