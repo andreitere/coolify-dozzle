@@ -1,0 +1,27 @@
+version: 3
+services:
+  dozzle:
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - dozzle-data:/data
+    ports:
+      - 8080:8080
+    environment:
+      - DOZZLE_AUTH_PROVIDER=simple
+      - SERVICE_FQDN_DOZZLE
+    depends_on:
+      - users-generator
+
+  users-generator:
+    image: bash:latest
+    volumes:
+      - dozzle-data:/data
+      - ./users-generator.sh:/users-generator.sh
+    environment:
+      DOZZLE_USERS: ${DOZZLE_USERS:-admin}
+      DOZZLE_PASSWORDS: ${DOZZLE_PASSES:-dozzledozzle}
+    entrypoint: ["/users-generator.sh"]
+
+volumes:
+    dozzle-data:
