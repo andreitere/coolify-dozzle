@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the output file path
-USERS_YAML=/data/users.yaml
+USERS_YAML=/data/users.yml
 
 # Initialize the users.yaml file
 echo "users:" > $USERS_YAML
@@ -25,4 +25,6 @@ for i in "${!USERS[@]}"; do
   echo "    password: ${PASSWORDS[i]}" >> $USERS_YAML
 done
 
-echo "Generated users.yaml with ${#USERS[@]} users."
+cat /data/users.yml
+
+echo "Generated users.yml with ${#USERS[@]} users."
