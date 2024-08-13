@@ -7,8 +7,6 @@ services:
       - dozzle-data:/data
     environment:
       - DOZZLE_AUTH_PROVIDER=simple
-      - DOZZLE_PASSES=${DOZZLE_PASSES:dozzledozzle}
-      - DOZZLE_USERS=${DOZZLE_PASSES:dozzle}
       - SERVICE_FQDN_DOZZLE_8080
     depends_on:
       - users-generator
@@ -17,6 +15,9 @@ services:
     build:
       context: ./users-generator
       dockerfile: Dockerfile
+    environment:
+      - DOZZLE_PASSES=${DOZZLE_PASSES:dozzledozzle}
+      - DOZZLE_USERS=${DOZZLE_PASSES:dozzle}
     volumes:
       - dozzle-data:/data
 
