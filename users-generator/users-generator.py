@@ -23,10 +23,10 @@ for username, password, email in zip(users, passwords, emails):
     }
 
 # Define the output file path
-output_file = "/data/users.yaml"
+output_file = "/data/users.yml"
 
 # Write user data to YAML file
 with open(output_file, "w") as file:
     yaml.dump({"users": user_data}, file, default_flow_style=False)
 
-print(f"Generated users.yaml with {len(user_data)} users.")
+print(f"Generated users.yml with {len(user_data)} users.")
