@@ -1,9 +1,9 @@
-FROM bash:latest
+FROM python:3.10-slim
 
 WORKDIR /data
 
-COPY ./users-generator.sh .
+RUN pip install pyyaml
 
-RUN chmod +x ./users-generator.sh
+COPY ./users-generator.py .
 
-CMD ["bash", "./users-generator.sh"]
+CMD ["python", "./users-generator.py"]
